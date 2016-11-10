@@ -15,6 +15,8 @@ exports.makeRestCall = function(method, url, headers, callback) {
         timeout: 100000 // wait 100s before abort the request
     }, function(err, resp, body) {
         if (err) {
+            console.log( "ERROR in makeRestCall" );
+            console.log( err );
             callback(err, resp, null);
         } else {
             callback(null, resp, body);
@@ -33,6 +35,8 @@ exports.getItems = function(itemname, callback) {
             }
             return callback(null, returndocs);
         } else {
+            console.log( "ERROR in getItems" );
+            console.log( err );
             return callback("Failed to get Items", null);
         }
     });
